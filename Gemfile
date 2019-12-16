@@ -33,6 +33,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Library that pretty prints Ruby objects
   gem 'awesome_print', '~> 1.8'
+  gem 'rspec', '~> 3.9'
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
