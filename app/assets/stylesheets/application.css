@@ -13,3 +13,118 @@
  *= require_tree .
  *= require_self
  */
+
+.logo {
+  width: 200px;
+  float: left;
+  padding: 6px 0 0 20px;
+}
+
+.nav-bar {
+  background-color: #71309e;
+  padding: 10px;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  margin-top: -5px;
+}
+
+.search {
+  margin: 10px 0px 0 100px;
+  float: left;
+}
+
+.title-field {
+  width: 500px !important;
+}
+
+.filters {
+  float: left;
+  margin: 18px 0 0 25px;
+}
+
+.filters-paragraph {
+  float: left;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.filters-arrow {
+  padding: 3px 0 0 10px;
+  color: #2bc06c;
+}
+
+.search-magnifier {
+  float: right;
+  margin: -38px 0 0 0;
+  height: 38px;
+  background-color: #2bc06c;
+  color: white;
+  width: 40px;
+  border-radius: 0 4px 4px 0;
+}
+
+#apartments-wrapper {
+  margin: 5px 20px 5px 20px;
+  padding-top: 80px;
+}
+
+.apartment-wrapper {
+  float: left;
+  margin: 5px 5px 5px 5px;
+  width: 24%;
+  background-color: #f4f4f4;
+  height: 350px;
+  border: 1px solid lightgray;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 250px;
+  background-image: url("https://image.shutterstock.com/image-photo/modern-apartment-buildings-exteriors-sunny-260nw-428869780.jpg");
+  background-color: lightblue;
+}
+
+.title-wrapper {
+  padding: 5px;
+  border-top: 1px solid lightgray;
+  height: 60px;
+  color: #253769;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.details-wrapper {
+  border-top: 1px solid lightgray;
+  padding-top: 7px;
+}
+
+.sqm-wrapper {
+  float: left;
+  width: 34%;
+  text-align: center;
+  color: #484848;
+}
+
+.bedrooms-wrapper {
+  float: left;
+  width: 33%;
+  text-align: center;
+  color: #484848;
+  height: 23px;
+  border-right: 1px solid #484848;
+  border-left: 1px solid #484848;
+}
+
+.bathrooms-wrapper {
+  float: left;
+  width: 33%;
+  text-align: center;
+  color: #484848;
+}
+
+.icon {
+  float: left;
+  margin: 2px -20px 0 20px;
+}

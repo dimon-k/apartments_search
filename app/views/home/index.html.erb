@@ -1,20 +1,48 @@
 <div id='homepage-wrapper'>
-  <h2>Apartments Search App</h2>
-  <div id='homepage-filter'>
-
-    <%= form_with url: :root, class: "nifty_form", method: :get do |f| %>
-      <%= f.number_field :bedrooms %>
-      <%= f.submit "filter" %>
-    <% end %>
+  <div class='nav-bar'>
+    <div class='logo'>
+      <%= image_tag("logo-white.svg") %>
+    </div>
+    <div class='search'>
+      <span>
+        <input class="w3-input w3-border w3-round title-field" type="text" name="title" placeholder="Barcelona">
+        <button class="search-magnifier">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </span>
+    </div>
+    <div class='filters'>
+      <p class='filters-paragraph'>Filters</p>
+      <span class="glyphicon glyphicon-chevron-down filters-arrow"></span>
+    </div>
   </div>
 
   <div id='apartments-wrapper'>
     <% @apartments.each do |apartment| %>
-      <div class='apartment-wrapper' style='width:500px;background-color:aliceblue'>
-        <p><%= apartment.title %></p>
-        <p><%= apartment.bedrooms %></p>
-        <p><%= apartment.price %></p>
+      <div class='apartment-wrapper'>
+        <div class="image-placeholder">
+        </div>
+        <div class="title-wrapper">
+          <p><%= apartment.title %></p>
+        </div>
+        <div class="details-wrapper">
+          <div class="sqm-wrapper">
+            <span class="glyphicon glyphicon-ok-sign icon"></span>
+            <p><%= apartment.sqm %></p>
+          </div>
+          <div class="bedrooms-wrapper">
+            <span class="glyphicon glyphicon-bed icon"></span>
+            <p><%= apartment.bedrooms %></p>
+          </div>
+          <div class="bathrooms-wrapper">
+            <span class="glyphicon glyphicon-tint icon"></span>
+            <p><%= apartment.bathrooms %></p>
+          </div>
+        </div>
       </div>
     <% end %>
+  </div>
+  <div style="float:left">
+    <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
   </div>
 </div>
