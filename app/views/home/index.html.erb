@@ -1,3 +1,20 @@
-<div id="homepage-wrapper">
+<div id='homepage-wrapper'>
   <h2>Apartments Search App</h2>
+  <div id='homepage-filter'>
+
+    <%= form_with url: :root, class: "nifty_form", method: :get do |f| %>
+      <%= f.number_field :bedrooms %>
+      <%= f.submit "filter" %>
+    <% end %>
+  </div>
+
+  <div id='apartments-wrapper'>
+    <% @apartments.each do |apartment| %>
+      <div class='apartment-wrapper' style='width:500px;background-color:aliceblue'>
+        <p><%= apartment.title %></p>
+        <p><%= apartment.bedrooms %></p>
+        <p><%= apartment.price %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
