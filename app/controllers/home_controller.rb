@@ -1,5 +1,3 @@
 class HomeController < ApplicationController
-  def index
-    @apartments = Apartment.all.sample(40)
-  end
+  def index; end
 end

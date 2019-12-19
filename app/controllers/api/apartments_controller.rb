@@ -10,7 +10,7 @@ module Api
       apartments = apartments.where(bedrooms: apartment_params[:bedrooms]) if apartment_params[:bedrooms].present?
       apartments = apartments.where(bathrooms: apartment_params[:bathrooms]) if apartment_params[:bathrooms].present?
 
-      render json: apartments.sample(9)
+      render json: apartments.sample(12)
     end
 
     private
