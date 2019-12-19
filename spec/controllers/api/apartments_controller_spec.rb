@@ -8,17 +8,31 @@ describe Api::ApartmentsController, type: :controller do
   let!(:ap_sqm_max)   { FactoryBot.create(:apartment, sqm: 40.18) }
   let!(:ap_bedrooms)  { FactoryBot.create(:apartment, bedrooms: 4) }
   let!(:ap_bathrooms) { FactoryBot.create(:apartment, bathrooms: 2) }
+  let!(:ap_madryd)    { FactoryBot.create(:apartment, latitude: 40.4167047, longitude: -3.7035825) }
 
   context '#filter' do
     let(:parse) { ->(resp) { JSON.parse(resp.body) } }
   
-    context 'by title' do
-      before do
-        get :filter, params: { title: 'sunny' }
+    context 'by location' do
+      context 'Madryd' do
+        before do
+          get :filter, params: { city_name: 'Madryd' }
+        end
+
+        it 'returns apartments filtered' do
+          expect(parse[response].count).to eq(1)
+          expect(parse[response].first['id']).to eq(ap_madryd.id)
+        end
       end
 
-      it 'returns apartments filtered' do
-        expect(parse[response].first['id']).to eq(ap_title.id)
+      context 'Barcelona' do
+        before do
+          get :filter, params: { city_name: 'Barcelona' }
+        end
+
+        it 'returns apartments filtered' do
+          expect(parse[response].count).to eq(7)
+        end
       end
     end
 
