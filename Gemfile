@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'geocoder', '~> 1.5', '>= 1.5.2'
 # MetaSearch gem
 gem 'ransack', '~> 2.3'
+# Allows to generate JSON in an object-oriented manner
+gem 'active_model_serializers', '~> 0.10.10', require: true
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
