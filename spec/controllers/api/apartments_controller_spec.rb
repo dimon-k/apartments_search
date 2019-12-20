@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Api::ApartmentsController, type: :controller do
-  let!(:ap_title)     { FactoryBot.create(:apartment, title: 'Brand new sunny apartment') }
   let!(:ap_price_min) { FactoryBot.create(:apartment, price: 250000) }
   let!(:ap_price_max) { FactoryBot.create(:apartment, price: 80000) }
   let!(:ap_sqm_min)   { FactoryBot.create(:apartment, sqm: 70.34) }
@@ -31,7 +30,7 @@ describe Api::ApartmentsController, type: :controller do
         end
 
         it 'returns apartments filtered' do
-          expect(parse[response].count).to eq(7)
+          expect(parse[response].count).to eq(6)
         end
       end
     end
