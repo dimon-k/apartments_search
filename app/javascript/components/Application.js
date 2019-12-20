@@ -86,6 +86,7 @@ class Application extends React.Component {
               bedrooms={el.bedrooms}
               bathrooms={el.bathrooms}
               price={el.price}
+              imageUrl={el.image_url}
             />
           ))}
         </div>

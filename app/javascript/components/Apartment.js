@@ -10,6 +10,7 @@ class Apartment extends React.Component {
     return (
       <div className="apartment-wrapper">
         <div className="image-placeholder">
+          <img className="image" src={this.props.imageUrl}></img>
           <div className="price-wrapper">
             <p className="price">{this.converterNumber(this.props.price)} €</p>
             <p className="price-sqm">

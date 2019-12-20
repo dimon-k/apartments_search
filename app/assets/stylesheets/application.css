@@ -107,8 +107,13 @@
 .image-placeholder {
   width: 100%;
   height: 250px;
-  background-image: url("https://image.shutterstock.com/image-photo/modern-apartment-buildings-exteriors-sunny-260nw-428869780.jpg");
-  background-color: lightblue;
+  background-color: lightgrey;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .title-wrapper {
@@ -158,7 +163,7 @@
   height: 70px;
   width: 100%;
   background-color: white;
-  top: 180px;
+  top: -70px;
   position: relative;
   opacity: 0.75;
   padding: 15px 0 0 20px;
