@@ -56,13 +56,18 @@ mapped_spanish_cities = spanish_cities.map do |city|
   [city, Geocoder.search(city).first.coordinates]
 end
 
-9_000.times do
+images_path = 'app/assets/images/apartments/'
+
+3_000.times do
   coord = mapped_spanish_cities.sample(1)[0][1]
-  Apartment.create!(title: FFaker::Lorem.sentence,
-                    price: rand(50_000..500_000),
-                    sqm: rand(15.00..100.00),
-                    bedrooms: rand(0..5),
-                    bathrooms: rand(1..3),
-                    latitude: coord[0],
-                    longitude: coord[1])
+  apartment = Apartment.create!(title: FFaker::Lorem.sentence,
+                                price: rand(50_000..500_000),
+                                sqm: rand(15.00..100.00),
+                                bedrooms: rand(0..5),
+                                bathrooms: rand(1..3),
+                                latitude: coord[0],
+                                longitude: coord[1])
+  
+  file_name = Dir.glob('**', base: images_path).sample(1)[0]
+  apartment.image.attach(io: File.open(images_path + file_name), filename: file_name)
 end
