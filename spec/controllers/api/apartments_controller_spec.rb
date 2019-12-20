@@ -16,7 +16,7 @@ describe Api::ApartmentsController, type: :controller do
     context 'by location' do
       context 'Madryd' do
         before do
-          get :filter, params: { city_name: 'Madryd' }
+          get :filter, params: { location: 'Madryd' }
         end
 
         it 'returns apartments filtered' do
@@ -27,7 +27,7 @@ describe Api::ApartmentsController, type: :controller do
 
       context 'Barcelona' do
         before do
-          get :filter, params: { city_name: 'Barcelona' }
+          get :filter, params: { location: 'Barcelona' }
         end
 
         it 'returns apartments filtered' do
@@ -36,9 +36,9 @@ describe Api::ApartmentsController, type: :controller do
       end
     end
 
-    context 'by price_min' do
+    context 'by price min' do
       before do
-        get :filter, params: { price_min: 200000 }
+        get :filter, params: { q: { price_gteq: 200000 } }
       end
 
       it 'returns apartments filtered' do
@@ -47,9 +47,9 @@ describe Api::ApartmentsController, type: :controller do
       end
     end
 
-    context 'by price_max' do
+    context 'by price max' do
       before do
-        get :filter, params: { price_max: 100000 }
+        get :filter, params: { q: { price_lteq: 100000 } }
       end
 
       it 'returns apartments filtered' do
@@ -58,9 +58,9 @@ describe Api::ApartmentsController, type: :controller do
       end
     end
 
-    context 'by sqm_min' do
+    context 'by sqm min' do
       before do
-        get :filter, params: { sqm_min: 70.01 }
+        get :filter, params: { q: { sqm_gteq: 70.01 } }
       end
 
       it 'returns apartments filtered' do
@@ -69,9 +69,9 @@ describe Api::ApartmentsController, type: :controller do
       end
     end
 
-    context 'by sqm_max' do
+    context 'by sqm max' do
       before do
-        get :filter, params: { sqm_max: 40.50 }
+        get :filter, params: { q: { sqm_lteq: 40.50 } }
       end
 
       it 'returns apartments filtered' do
@@ -82,7 +82,7 @@ describe Api::ApartmentsController, type: :controller do
 
     context 'by bedrooms' do
       before do
-        get :filter, params: { bedrooms: 4 }
+        get :filter, params: { q: { bedrooms_eq: 4 } }
       end
 
       it 'returns apartments filtered' do
@@ -93,7 +93,7 @@ describe Api::ApartmentsController, type: :controller do
 
     context 'by bathrooms' do
       before do
-        get :filter, params: { bathrooms: 2 }
+        get :filter, params: { q: { bathrooms_eq: 2 } }
       end
 
       it 'returns apartments filtered' do
