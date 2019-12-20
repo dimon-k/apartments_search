@@ -10,19 +10,25 @@ class NavBar extends React.Component {
         <div className="search">
           <span>
             <input
-              className="w3-input w3-border w3-round title-field"
+              className="w3-input w3-border w3-round locations-field"
               type="text"
-              name="title"
+              name="locations"
               placeholder="Barcelona"
+              ref={this.props.location}
             />
-            <button className="search-magnifier">
+            <button className="search-magnifier" onClick={this.props.fetchData}>
               <span className="glyphicon glyphicon-search"></span>
             </button>
           </span>
         </div>
         <div className="filters-button">
-          <p className="filters-paragraph">Filters</p>
-          <span className="glyphicon glyphicon-chevron-down filters-arrow"></span>
+          <div
+            className="filters-button-wrapper"
+            onClick={this.props.togglFilter}
+          >
+            <p className="filters-paragraph">Filters</p>
+            <span className="glyphicon glyphicon-chevron-down filters-arrow"></span>
+          </div>
         </div>
       </div>
     );

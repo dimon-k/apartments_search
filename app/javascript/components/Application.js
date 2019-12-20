@@ -2,10 +2,11 @@ import React from "react";
 import Apartment from "./Apartment";
 import NavBar from "./NavBar";
 import Filter from "./Filter";
-class HomePage extends React.Component {
+class Application extends React.Component {
   constructor() {
     super();
-    this.state = { apartments: [] };
+    this.state = { apartments: [], showFilter: false };
+    this.location = React.createRef();
     this.numberOfBedrooms = React.createRef();
     this.numberOfBathrooms = React.createRef();
     this.priceMin = React.createRef();
@@ -15,16 +16,18 @@ class HomePage extends React.Component {
   }
 
   fetchData = () => {
-    var numberOfBedrooms = this.numberOfBedrooms.current;
-    var numberOfBathrooms = this.numberOfBathrooms.current;
-    var priceMin = this.priceMin.current;
-    var priceMax = this.priceMax.current;
-    var sqmMin = this.sqmMin.current;
-    var sqmMax = this.sqmMax.current;
-    var url =
+    const location = this.location.current;
+    const numberOfBedrooms = this.numberOfBedrooms.current;
+    const numberOfBathrooms = this.numberOfBathrooms.current;
+    const priceMin = this.priceMin.current;
+    const priceMax = this.priceMax.current;
+    const sqmMin = this.sqmMin.current;
+    const sqmMax = this.sqmMax.current;
+    const url =
       window.location.origin +
       "/api/filter?" +
       new URLSearchParams({
+        location: location.value,
         bedrooms: numberOfBedrooms.value,
         bathrooms: numberOfBathrooms.value,
         price_min: priceMin.value,
@@ -42,6 +45,10 @@ class HomePage extends React.Component {
       });
   };
 
+  togglFilter = () => {
+    this.setState({ showFilter: !this.state.showFilter });
+  };
+
   componentDidMount() {
     fetch(window.location.origin + "/api/filter?")
       .then(resp => {
@@ -54,8 +61,12 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
+      <div id="homepage-wrapper">
+        <NavBar
+          location={this.location}
+          fetchData={this.fetchData}
+          togglFilter={this.togglFilter}
+        />
         <Filter
           fetchData={this.fetchData}
           numberOfBedrooms={this.numberOfBedrooms}
@@ -64,6 +75,7 @@ class HomePage extends React.Component {
           priceMax={this.priceMax}
           sqmMin={this.sqmMin}
           sqmMax={this.sqmMax}
+          showFilter={this.state.showFilter}
         />
         <div id="apartments-wrapper">
           {this.state.apartments.map(el => (
@@ -81,4 +93,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default Application;
