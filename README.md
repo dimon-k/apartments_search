@@ -1,24 +1,50 @@
-# README
+# Apartments Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version: 2.6.5
 
-Things you may want to cover:
+### Rails version: 6.0.2
 
-* Ruby version
+Tech Stack:
 
-* System dependencies
+- back end: `Ruby On Rails`
+- front end: `ReactJS`, `HTML`, `CSS`
+- database: `Postgres`
+- search engine: `Ransack`
+- serialization: `Active Model Serializers`
+- geolocation: `Geocoder`
+- tests: `Rspec`, `Capybara`, `FactoryBot`
+- fake data generation: `FFaker`
+- images: `ActiveStorage`, `Aws SDK S3`
 
-* Configuration
+**DEMO** app is up and running on Heroku:
+https://apartments-search.herokuapp.com/
 
-* Database creation
+_Before setting up the database, you can have a look into seeds file and if needed on [line 61](https://github.com/dimon-k/apartments_search/blob/master/db/seeds.rb#L61) change the amount of fake apartments that are going to be generated locally on your machine. By default it's **3000**._
 
-* Database initialization
+Make sure you have installed and running locally Postgres. Using Brew you can do it by running:
 
-* How to run the test suite
+```
+brew install postgresql
+brew services start postgresql
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+To setup the app, run:
 
-* Deployment instructions
+```
+rails db:setup
+```
 
-* ...
+To start the app, run:
+
+```
+bundle exec rails server
+```
+
+To access, visit:
+http://localhost:3000/
+
+To run tests, run:
+
+```
+bundle exec rspec spec
+```
