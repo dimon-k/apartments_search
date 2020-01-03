@@ -15,29 +15,21 @@ class Application extends React.Component {
     this.sqmMax = React.createRef();
   }
 
-  url = () => {
-    return (
+  fetchData = () => {
+    const url =
       window.location.origin +
       "/api/filter?" +
-      "q[bedrooms_eq]=" +
-      this.numberOfBedrooms.current.value +
-      "&q[bathrooms_eq]=" +
-      this.numberOfBathrooms.current.value +
-      "&q[price_gteq]=" +
-      this.priceMin.current.value +
-      "&q[price_lteq]=" +
-      this.priceMax.current.value +
-      "&q[sqm_gteq]=" +
-      this.sqmMin.current.value +
-      "&q[sqm_lteq]=" +
-      this.sqmMax.current.value +
-      "&location=" +
-      this.location.current.value
-    );
-  };
+      new URLSearchParams({
+        price_gteq: this.priceMin.current.value,
+        price_lteq: this.priceMax.current.value,
+        sqm_gteq: this.sqmMin.current.value,
+        sqm_lteq: this.sqmMax.current.value,
+        bedrooms_eq: this.numberOfBedrooms.current.value,
+        bathrooms_eq: this.numberOfBathrooms.current.value,
+        location: this.location.current.value
+      }).toString();
 
-  fetchData = () => {
-    fetch(this.url())
+    fetch(url)
       .then(resp => {
         return resp.json();
       })
