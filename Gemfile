@@ -31,6 +31,10 @@ gem 'ransack', '~> 2.3'
 gem 'active_model_serializers', '~> 0.10.10', require: true
 # Amazon Simple Storage Service (Amazon S3)
 gem 'aws-sdk-s3', '~> 1.60', '>= 1.60.1'
+# Elasticsearch
+gem 'chewy', '~> 5.1'
+# ActiveModel-based front-end for data
+gem 'active_data', '~> 1.1', '>= 1.1.6'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,9 +1,7 @@
 module Api
   class ApartmentsController < ActionController::API
-    before_action :set_geo_scope, only: :filter
-
     def filter
-      apartments = @search.ransack(params[:q]).result(distinct: true)
+      apartments = ApartmentsSearcher.new(apartments_params).search
 
       render json: apartments.sample(40),
              each_serializer: serializer
@@ -11,8 +9,9 @@ module Api
 
     private
 
-    def set_geo_scope
-      @search = params[:location].present? ? Apartment.near_location(params[:location]) : Apartment.all
+    def apartments_params
+      params.permit(:price_gteq, :price_lteq, :sqm_gteq, :sqm_lteq,
+                    :bedrooms_eq, :bathrooms_eq, :location)
     end
 
     def serializer

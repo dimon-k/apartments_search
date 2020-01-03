@@ -21,6 +21,8 @@ https://apartments-search.herokuapp.com/
 
 _Before setting up the database, you can have a look into seeds file and if needed on [line 61](https://github.com/dimon-k/apartments_search/blob/master/db/seeds.rb#L61) change the amount of fake apartments that are going to be generated locally on your machine. By default it's **3000**._
 
+Make sure you have installed and running locally **Elasticsearch 5.x** on **localhost:9200**.
+
 Make sure you have installed and running locally Postgres. Using Brew you can do it by running:
 
 ```
