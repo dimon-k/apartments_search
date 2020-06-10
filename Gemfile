@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Geocoding solution for Ruby.
-gem 'geocoder', '~> 1.5', '>= 1.5.2'
+gem 'geocoder', '~> 1.6'
 # MetaSearch gem
 gem 'ransack', '~> 2.3'
 # Allows to generate JSON in an object-oriented manner
